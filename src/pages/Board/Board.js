@@ -5,3 +5,5 @@ function BoardPage() {
         </div>
     );
 }
+
+export default BoardPage;

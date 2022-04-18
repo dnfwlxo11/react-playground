@@ -5,3 +5,5 @@ function TodoPage() {
         </div>
     );
 }
+
+export default TodoPage

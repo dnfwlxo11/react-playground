@@ -1,3 +1,5 @@
+import React from 'react'
+
 function CalcPage() {
     return(
         <div>
@@ -5,3 +7,5 @@ function CalcPage() {
         </div>
     );
 }
+
+export default CalcPage;

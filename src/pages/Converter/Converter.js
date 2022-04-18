@@ -5,3 +5,5 @@ function ConverterPage() {
         </div>
     );
 }
+
+export default ConverterPage;
