@@ -1,34 +1,44 @@
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-
-import Calc from './Calc/Calc'
-// import Todo from './Todo/Todo'
-// import Converter from './Converter/Converter'
-// import Board from './Board/Board'
-
-import './Main.css'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 function MainPage() {
-    // const routeArr = ['Calc', 'Converter', 'Board', 'Todo']
-    // const koreanName = ['계산기', '단위변환', '게시판', 'Todo 리스트']
+    const routeJson = {
+        '/calc': {
+            name: '계산기',
+            img: '/images/calc.png'
+        }, 
+        
+        '/converter': {
+            name: '단위변환',
+            img: '/images/convert.png'
+        }, 
+        
+        '/board': {
+            name: '게시판',
+            img: '/images/board.png'
+        }, 
+        
+        '/todo': {
+            name: 'Todo 리스트',
+            img: '/images/todo.png'
+        }
+    }
 
     return (
         <div className="container">
-            <div className='card'>
-                <div className='card-body'>
-                    {/* <BrowserRouter>
-                        <Routes>
-                            <Route path="/calc" element={Calc} />
-                        </Routes>
-                    </BrowserRouter> */}
-                    {/* <>
-                        <Link to="/calc">
-                            <button>계산기로</button>
-                        </Link>
-                    </> */}
-                </div>
-            </div>
-        </div>
+            {
+                Object.keys(routeJson).map((route, idx) => (
+                    <div className='card'>
+                        <div className='card-body'>
+                            <Link to={route} key={routeJson[route].name}>
+                                <img className='menu-image' src={routeJson[route].img}></img>
+                                {/* {routeJson[route].name} */}
+                            </Link>
+                        </div>
+                    </div>
+                ))
+            }    
+        </div>      
     );
 }
 
-export default MainPage
+export default MainPage;

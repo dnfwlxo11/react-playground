@@ -1,0 +1,26 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import Main from  './Main'
+import Calc from './Calc/Calc'
+import Todo from './Todo/Todo'
+import Converter from './Converter/Converter'
+import Board from './Board/Board'
+
+import './Main.css'
+
+function App() {
+    return(
+        <Router>
+            {/* <Main className='container' /> */}
+            <Routes>
+                <Route path="/" exact={true} element={<Main />} />
+                <Route path="/calc" element={<Calc />} />
+                <Route path="/todo" element={<Todo />} />
+                <Route path="/converter" element={<Converter />} />
+                <Route path="/board" element={<Board />} />
+            </Routes>
+        </Router>
+    );
+}
+
+export default App
