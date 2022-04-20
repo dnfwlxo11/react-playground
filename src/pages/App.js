@@ -11,7 +11,6 @@ import './Main.css'
 function App() {
     return(
         <Router>
-            {/* <Main className='container' /> */}
             <Routes>
                 <Route path="/" exact={true} element={<Main />} />
                 <Route path="/calc" element={<Calc />} />

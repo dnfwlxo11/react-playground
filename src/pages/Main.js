@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
+import './Main.css'
+
 function MainPage() {
     const routeJson = {
-        '/calc': {
+        '/calc': { 
             name: '계산기',
             img: '/images/calc.png'
         }, 
@@ -24,19 +26,19 @@ function MainPage() {
     }
 
     return (
-        <div className="container">
+        <div className="grid-container">
             {
                 Object.keys(routeJson).map((route, idx) => (
-                    <div className='card'>
-                        <div className='card-body'>
-                            <Link to={route} key={routeJson[route].name}>
+                    <Link to={route} key={routeJson[route].name}>
+                        <div className='card'>
+                            <div className='card-body'>
                                 <img className='menu-image' src={routeJson[route].img}></img>
                                 {/* {routeJson[route].name} */}
-                            </Link>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 ))
-            }    
+            }
         </div>      
     );
 }

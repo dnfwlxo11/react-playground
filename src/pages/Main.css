@@ -1,14 +1,22 @@
-.container {
-    height: 100%;
+.grid-container {
     display: grid;
-
-    padding-left: 10%;
-    padding-right: 10%;
 
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
 
     place-items: center;
+
+    height: 100%;
+
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.container {
+    padding-left: 10%;
+    padding-right: 10%;
+
+    height: 100%;
 }
 
 .card {
@@ -18,8 +26,8 @@
     margin-bottom: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
-    height: 70%;
-    width: 80%;
+    height: 300px;
+    width: 400px;
     box-shadow: 1px 1px 2px black;
 }
 
@@ -32,6 +40,6 @@
 }
 
 .menu-image {
-    height: 70%;
-    width: 70%;
+    height: 200px;
+    width: 300px;
 }
