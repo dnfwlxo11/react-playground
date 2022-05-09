@@ -1,0 +1,13 @@
+.contents {
+    height: 600px;
+    overflow-y: scroll;
+    
+}
+
+.content {
+    width: 60%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
