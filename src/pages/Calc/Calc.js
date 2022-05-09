@@ -1,10 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router';
 
 function CalcPage() {
+    const navigate = useNavigate()
+
     return(
-        <div>
-            안녕하세요. <br />
-            계산기 영역입니다.
+        <div className='container'>
+            <div className='text-center'>
+                <i className='icon mdi mdi-chevron-left' onClick={() => { navigate('/') }}></i>
+            </div>
         </div>
     );
 }

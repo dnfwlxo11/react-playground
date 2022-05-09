@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router';
+
 function BoardPage() {
+    const navigate = useNavigate()
+
     return(
-        <div>
-            안녕하세요. <br />
-            게시판 입니다.
+        <div className='container'>
+            <div className='text-center'>
+                <i className='icon mdi mdi-chevron-left' onClick={() => { navigate('/') }}></i>
+            </div>
         </div>
     );
 }

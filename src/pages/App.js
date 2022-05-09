@@ -12,7 +12,7 @@ function App() {
     return(
         <Router>
             <Routes>
-                <Route path="/" exact={true} element={<Main />} />
+                <Route path="/" element={<Main />} />
                 <Route path="/calc" element={<Calc />} />
                 <Route path="/todo" element={<Todo />} />
                 <Route path="/converter" element={<Converter />} />
