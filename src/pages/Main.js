@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Link } from 'react-router-dom'
+import staticContents from './Board/static/contents.json'
 
 import './Main.css'
 
@@ -24,6 +25,8 @@ function MainPage() {
             img: '/images/todo.png'
         }
     }
+
+    if (!localStorage.getItem('contents')) localStorage.setItem('contents', JSON.stringify(staticContents))
 
     return (
         <div className="grid-container">

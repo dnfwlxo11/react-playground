@@ -5,6 +5,8 @@ import Calc from './Calc/Calc'
 import Todo from './Todo/Todo'
 import Converter from './Converter/Converter'
 import Board from './Board/Board'
+import BoardUpload from './Board/pages/Upload'
+import BoardContent from './Board/pages/Content'
 
 import './Main.css'
 
@@ -17,6 +19,8 @@ function App() {
                 <Route path="/todo" element={<Todo />} />
                 <Route path="/converter" element={<Converter />} />
                 <Route path="/board" element={<Board />} />
+                <Route path="/board/upload" element={<BoardUpload />} />
+                <Route path="/board/:uid" element={<BoardContent />} />
             </Routes>
         </Router>
     );

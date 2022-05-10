@@ -1,0 +1,17 @@
+.board-body {
+    height: 600px;
+    overflow-y: auto;
+}
+
+.board-btn {
+    height: 70px;
+    width: 60%;
+    padding: 10px;
+    background-color: #9FBDD2;
+    color: #FFF;
+    margin: auto;
+}
+
+.board-inner {
+    margin: auto;
+}
