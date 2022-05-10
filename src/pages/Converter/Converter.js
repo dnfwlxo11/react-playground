@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import staticFormula from './static/unitValue'
 import './Converter.css'
@@ -44,7 +44,7 @@ function ConverterPage() {
             <div className='convert-box'>
                 <div className='convert-nav'>
                     {Object.keys(unitName).map(unit => {
-                            return <div><span onClick={() => changeMenu(unit)}>{unitName[unit]}</span> |&nbsp;</div>
+                            return <div key={unit}><span onClick={() => changeMenu(unit)}>{unitName[unit]}</span> |&nbsp;</div>
                     })}
                 </div>
                 <div className='convert-input'>
@@ -52,7 +52,7 @@ function ConverterPage() {
                     {
                         <select name='length' onChange={onChangeUnit}>
                             {units[TargetMenu].map(unitItem => {
-                                return (<option value={unitItem}>{unitItem}</option>)
+                                return (<option key={unitItem} value={unitItem}>{unitItem}</option>)
                             })}                                    
                         </select>
                     }
@@ -62,7 +62,7 @@ function ConverterPage() {
                         {units[TargetMenu].filter(item => item !== SelectUnit).map(unit => {
                             if (unit !== '단위 선택') {
                                 return (
-                                    <div className='convert-result-box'>
+                                    <div key={unit} className='convert-result-box'>
                                         <div className='convert-result-label'>{unit}</div>
                                         <div className='convert-result-output'>{TargetValue  ? (TargetValue * (formula[TargetMenu][unit] / formula[TargetMenu][SelectUnit])).toFixed(2) : 0}</div>
                                     </div>

@@ -8,10 +8,21 @@ function TodoPage() {
     const [Contents, setContents] = useState([])
     const [NewContent, setNewContent] = useState('')
 
+    useEffect(() => {
+        const contents = JSON.parse(localStorage.getItem('todo'))
+        
+        if (contents) setContents(contents)
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('todo', JSON.stringify(Contents))
+    }, [Contents])
+
     const onSubmitContents = () => {
+        if (NewContent === '') return
+
         setContents([...Contents, NewContent])
         setNewContent('')
-        
     }
 
     const onChangeNewContent = (e) => {
@@ -20,10 +31,7 @@ function TodoPage() {
 
     const deleteTodo = (idx, e) => {
         e.preventDefault()
-        console.log(idx)
-        console.log(Contents, 'Contents before')
         Contents.splice(idx, 1)
-        console.log(Contents, 'Contents after')
         setContents([...Contents])
     }
 
@@ -35,7 +43,7 @@ function TodoPage() {
             <div className='contents mb-3'>
                 {Contents.map((content, idx) => {
                     return(
-                        <div className='row'>
+                        <div key={idx} className='row'>
                             <div className='content col-9'>{content}</div>
                             <div className='col-1'></div>
                             <div className='col-2'>

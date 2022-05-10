@@ -1,15 +1,11 @@
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import staticContents from './Board/static/contents.json'
+import staticTodo from './Todo/static/todoValue.json'
 
 import './Main.css'
 
 function MainPage() {
-    const routeJson = {
-        '/calc': { 
-            name: '계산기',
-            img: '/images/calc.png'
-        }, 
-        
+    const routeJson = {        
         '/converter': {
             name: '단위변환',
             img: '/images/convert.png'
@@ -27,6 +23,7 @@ function MainPage() {
     }
 
     if (!localStorage.getItem('contents')) localStorage.setItem('contents', JSON.stringify(staticContents))
+    if (!localStorage.getItem('todo')) localStorage.setItem('todo', JSON.stringify(staticTodo))
 
     return (
         <div className="grid-container">
@@ -34,10 +31,10 @@ function MainPage() {
                 Object.keys(routeJson).map((route, idx) => (
                     <Link to={route} key={routeJson[route].name}>
                         <div className='card'>
-                            <div className='card-body'>
+                            <div className='card-body d-flex align-items-center'>
                                 <img className='menu-image' src={routeJson[route].img}></img>
-                                {/* {routeJson[route].name} */}
                             </div>
+                            <div className="menu-title text-center">{ routeJson[route].name }</div>
                         </div>
                     </Link>
                 ))

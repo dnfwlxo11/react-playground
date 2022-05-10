@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { format } from 'date-fns'
 
 export function UploadPage() {
     const navigate = useNavigate()
@@ -22,7 +23,7 @@ export function UploadPage() {
 
     const submitContent = () => {
         const contents = JSON.parse(localStorage.getItem('contents'))
-        const now = (new Date()).getDate().toString()
+        const now = format(new Date(), 'yyyy-MM-dd HH:mm:ss')
 
         contents.push({
             uid: contents.length + 1,
@@ -49,7 +50,7 @@ export function UploadPage() {
             </div>
             <div className='row mb-3'>
                 <div className='col-2 text-left'>
-                    작성자 : 
+                    내 용 : 
                 </div>
                 <div className='col-6 text-left'>
                     <textarea className='w-100' onChange={onChangeBody}></textarea>
@@ -57,7 +58,7 @@ export function UploadPage() {
             </div>
             <div className='row mb-3'>
                 <div className='col-2 text-left'>
-                    내 용 : 
+                    작성자 : 
                 </div>
                 <div className='col-6 text-left'>
                     <input type='text' className='w-100' onChange={onChangeAuthor}></input>
