@@ -4,10 +4,24 @@ import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 import { useCallback, useRef, useState } from 'react';
 
-function App() {
-  const [todos, setTodos] = useState([]);
+function createBulkTodos() {
+  const array = [];
 
-  const nextId = useRef(4);
+  for (let i=1;i<=2500;i++) {
+    array.push({
+      id: i,
+      text: `할 일 ${i}`,
+      checked: false,
+    });
+  }
+
+  return array;
+}
+
+function App() {
+  const [todos, setTodos] = useState(createBulkTodos);
+
+  const nextId = useRef(1);
   const onInsert = useCallback(
     (text) => {
       const todo = {
@@ -16,21 +30,21 @@ function App() {
         checked: false,
       }
 
-      setTodos(todos.concat(todo));
+      setTodos(todos => todos.concat(todo));
       nextId.current += 1;
-  }, [todos]);
+  }, []);
 
   const onRemove = useCallback((id) => {
-    setTodos(todos.filter(todo => todo.id !== id))
-  });
+    setTodos(todos => todos.filter(todo => todo.id !== id))
+  }, []);
 
   const onToggle = useCallback((id) => {
-    setTodos(
+    setTodos((todos) => {
       todos.map((todo) => {
         return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
       })
-    );
-  }, [todos]);
+    });
+  }, []);
 
   return (
     <div className="App">

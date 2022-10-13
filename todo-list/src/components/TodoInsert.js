@@ -6,8 +6,8 @@ function TodoInsert(props) {
     const onInsert = props.onInsert;
     const [value, setValue] = useState('');
 
-    const onChange = useCallback((e) => {
-        setValue(e.target.value);
+    const onChange = useCallback((evt) => {
+        setValue(evt.target.value);
     }, []);
 
     const onSubmit = useCallback(

@@ -5,6 +5,7 @@ import {
 } from 'react-icons/md';
 import cn from 'classnames';
 import './TodoListItem.scss';
+import React from 'react';
 
 function TodoListItem(props) {
     const { id, text, checked } = props.todo;
@@ -24,4 +25,4 @@ function TodoListItem(props) {
     )
 }
 
-export default TodoListItem;
+export default React.memo(TodoListItem);
