@@ -5,23 +5,7 @@ import TodoList from './components/TodoList';
 import { useCallback, useRef, useState } from 'react';
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '1',
-      checked: true,
-    },
-    {
-      id: 2,
-      text: '2',
-      checked: true,
-    },
-    {
-      id: 3,
-      text: '3',
-      checked: true,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
 
   const nextId = useRef(4);
   const onInsert = useCallback(
@@ -34,15 +18,25 @@ function App() {
 
       setTodos(todos.concat(todo));
       nextId.current += 1;
-    },
-    [todos],
-  )
+  }, [todos]);
+
+  const onRemove = useCallback((id) => {
+    setTodos(todos.filter(todo => todo.id !== id))
+  });
+
+  const onToggle = useCallback((id) => {
+    setTodos(
+      todos.map((todo) => {
+        return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
+      })
+    );
+  }, [todos]);
 
   return (
     <div className="App">
       <TodoTemplate>
         <TodoInsert onInsert={onInsert}></TodoInsert>
-        <TodoList todos={todos}></TodoList>
+        <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle}></TodoList>
       </TodoTemplate>
     </div>
   );
