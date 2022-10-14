@@ -1,3 +1,13 @@
+.TodoListItem-virtualized {
+  & + & {
+    border-top: 1px solid #DEE2E6;
+  }
+
+  &:nth-child(even) {
+    background: #F8F9FA;
+  }
+}
+
 .TodoListItem {
     padding: 1rem;
     display: flex;
