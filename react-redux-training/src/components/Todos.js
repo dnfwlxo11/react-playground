@@ -1,5 +1,5 @@
 import React from 'react'
-import TodoItem from './TodoItems'
+import TodoItem from './TodoItem'
 
 function Todos(props) {
   const { input, todos, onChangeInput, onInsert, onToggle, onRemove } = props;
