@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
-import Todos from './components/Todos';
 
+import TodosContainer from './components/TodosContainer';
 import CounterContainer from './components/CounterContainer';
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
     <div className="App">
       <CounterContainer></CounterContainer>
       <hr></hr>
-      <Todos></Todos>
+      <TodosContainer></TodosContainer>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Counter from '../components/Counter';
 import { increase, decrease } from '../modules/counter';
@@ -6,19 +5,19 @@ import { increase, decrease } from '../modules/counter';
 function CounterContainer(props) {
   const { number, increase, decrease } = props;
 
-  return <Counter number={number} onIncrease={increase} onDecrease={decrease}></Counter>
+  return <Counter 
+    number={number} 
+    onIncrease={increase} 
+    onDecrease={decrease}>
+  </Counter>
 }
 
-const mapStateToProps = (state) => ({
-  number: state.counter.number
-});
-
-const mapDispatchToProps = {
-  increase,
-  decrease,
-};
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
+  ({counter}) => ({
+    number: counter.number
+  }),
+  {
+    increase,
+    decrease,
+  },
 )(CounterContainer);

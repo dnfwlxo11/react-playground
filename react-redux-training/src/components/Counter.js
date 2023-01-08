@@ -2,7 +2,6 @@ import React from 'react'
 
 function Counter(props) {
   const { number, onIncrease, onDecrease } = props;
-  console.log(onIncrease, onDecrease, 'props');
 
   return (
     <div>

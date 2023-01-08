@@ -4,13 +4,13 @@ const TOGGLE = 'todos/TOGGLE';
 const REMOVE = 'todos/REMOVE';
 
 export const changeInput = (input) => ({
-  type: 'CHANGE_INPUT',
+  type: CHANGE_INPUT,
   input
 });
 
 let id = 3;
 export const insert = (text) => ({
-  type: 'INSERT',
+  type: INSERT,
   todo: {
     id: id++,
     text,
@@ -19,12 +19,12 @@ export const insert = (text) => ({
 });
 
 export const toggle = (id) => ({
-  type: 'TOGGLE',
+  type: TOGGLE,
   id
 });
 
 export const remove = (id) => ({
-  type: 'REMOVE',
+  type: REMOVE,
   id
 });
 
@@ -54,9 +54,10 @@ function todos(state = initialState, action) {
       };
 
     case INSERT:
+      console.log(state.todos, action.todo)
       return {
         ...state,
-        input: state.todos.concat(action.input)
+        todos: state.todos.concat(action.todo)
       };
 
     case TOGGLE:

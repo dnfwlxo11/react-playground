@@ -1,11 +1,9 @@
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 function About() {
-    console.log('about');
     const [searchParams, setSearchParams] = useSearchParams();
     const detail = searchParams.get('detail');
     const mode = searchParams.get('mode');
-    console.log('searchParams, detail, mode', searchParams, detail, mode);
 
     const onToggleDetail = () => {
         setSearchParams({ mode, detail: detail === 'true' ? false : true });

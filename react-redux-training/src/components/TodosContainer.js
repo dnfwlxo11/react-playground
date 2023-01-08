@@ -6,9 +6,16 @@ function TodosContainer(props) {
   const { input, todos, changeInput, insert, toggle, remove } = props;
 
   return (
-    <Todos input={input} todos={todos} onChangeInput={changeInput} onInsert={insert} onToggle={toggle} onRemove={remove}></Todos>
+    <Todos 
+      input={input} 
+      todos={todos} 
+      onChangeInput={changeInput} 
+      onInsert={insert} 
+      onToggle={toggle} 
+      onRemove={remove}>
+    </Todos>
   )
-}
+};
 
 export default connect(
   ({todos}) => ({

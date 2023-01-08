@@ -19,7 +19,6 @@ function ContentPage() {
 
     useEffect(() => {
         localStorage.setItem('contents', JSON.stringify(Contents))
-        console.log('change Contents array')
     }, [Contents])
 
     const onDeleteEvent = (e) => {

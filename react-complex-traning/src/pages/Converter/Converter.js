@@ -27,7 +27,6 @@ function ConverterPage() {
     }
 
     const onChangeUnit = (e) => {
-        console.log(e.currentTarget.value)
         setSelectUnit(e.currentTarget.value);
     }
 

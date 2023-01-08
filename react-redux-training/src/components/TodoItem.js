@@ -1,15 +1,22 @@
 import React from 'react'
 
-function TodoItems(props) {
+function TodoItem(props) {
   const { todo, onToggle, onRemove } = props;
 
   return (
     <div>
-      <input type='checkbox'></input>
-      <span>예제 텍스트</span>
-      <button>삭제</button>
+      <input 
+        type='checkbox'
+        onClick={() => onToggle(todo.id)}
+        checked={todo.done}
+        readOnly={true}>  
+      </input>
+      <span style={{ textDecoration: todo.done ? 'line-through' : 'none' }}>
+        {todo.text}
+      </span>
+      <button onClick={() => onRemove(todo.id)}>삭제</button>
     </div>
   )
 }
 
-export default TodoItems
+export default TodoItem
